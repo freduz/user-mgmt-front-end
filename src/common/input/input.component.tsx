@@ -1,19 +1,21 @@
-import { FC } from "react";
+import { ChangeEvent, FC } from "react";
 
 import './input.styles.css'
 
 interface IInputProps{
     type:string;
     label:string;
-    handler?:() => void
-    className?:string
+    handler?:(e:ChangeEvent<HTMLInputElement>) => void
+    className?:string;
+    name:string;
+    value:string
 }
 
-const Input:FC<IInputProps> = ({type,label,handler,className}) => {
+const Input:FC<IInputProps> = ({handler,...rest}) => {
       return (<>
            <div className="input_container">
-            <label>{label}</label>
-            <input type={type} className={className} onChange={handler}  />
+            <label>{rest.label}</label>
+            <input {...rest} onChange={handler}  />
            </div>
       </>)
 }

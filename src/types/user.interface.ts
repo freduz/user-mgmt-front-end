@@ -8,5 +8,5 @@ export interface IUser{
 
 type Action = {
     id:number;
-    name:string
+    action:string
 }

@@ -1,27 +1,23 @@
 import React, { createContext, useState } from "react";
+import { IModelContext } from "../types/model-context.interface";
 
- interface IModelContext{
-    isOpen:boolean,
-    toggle?:() => void
-}
 
 const defaultState:IModelContext = {
-isOpen:false,
-toggle:() => null
+isOpen:{
+    "add_modal" : false,
+    "run_modal" : false
+},
+setIsOpen:() => null
 }
 
 export const ModelContext = createContext<IModelContext>(defaultState);
 
 
-
 export const ModelProvider= ({children}:{children:React.ReactNode}) => {
-    const [isOpen,setIsOpen] = useState<boolean>(false);
-    const toggle = () => {
-        setIsOpen((isOpen) => !isOpen);
-    }
-    const value:IModelContext = {
+    const [isOpen,setIsOpen] = useState<{}>({});
+    const value = {
         isOpen,
-        toggle
+        setIsOpen
     }
     return (
         <ModelContext.Provider value={value}>{children}</ModelContext.Provider>

@@ -6,7 +6,9 @@ import { UserService } from "../service/user.service";
 const defaultUserState:IUserState = {
     users:[],
     isLoading:false,
-    errors:undefined
+    errors:undefined,
+    isSubmiting:false,
+    selectedId:undefined
 }
 
 const defaultState:IUserContext = {

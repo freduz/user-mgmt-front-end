@@ -5,7 +5,7 @@ interface IButtonProps {
     className:string;
     name:string;
     type?:"button" | "submit" | "reset" | undefined;
-    handler?:React.EventHandler<React.MouseEvent<HTMLButtonElement>>
+    handler?:any
 }
 
 const Button:React.FC<IButtonProps> = ({name,className,handler,type="button"}) => {

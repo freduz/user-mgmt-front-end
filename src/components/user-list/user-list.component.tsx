@@ -3,6 +3,7 @@ import AddUser from '../add-user/add-user.component';
 import { UserContext } from '../../context/user.context';
 import UserItem from '../user-item/user-item.component';
 import { RotatingSquare } from 'react-loader-spinner';
+import DoAction from '../do-action/do-action.component';
 
 const UserList:React.FC = () => {
 
@@ -12,6 +13,7 @@ const UserList:React.FC = () => {
   return (
     <>
     <AddUser/>
+    <DoAction/>
     <div className='p-5 border border-solid border-gray-300 rounded-lg'>
     {
         state.isLoading ? (<><RotatingSquare
